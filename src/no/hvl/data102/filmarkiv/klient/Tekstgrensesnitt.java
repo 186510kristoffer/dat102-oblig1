@@ -35,16 +35,16 @@ public class Tekstgrensesnitt {
 	    System.out.print("Skriv inn filmens produsent: ");
 	    String produsent = scanner.nextLine();
 	    
-	    return new Film(nr, regissor, tittel, ar, produsent);
+	    return new Film(nr, regissor, tittel, ar, produsent, sjanger);
 	}
 		
 	public void skrivUtFilm(Film film) {
 		System.out.println("Filmnummer: " + film.getFilmnr());
 	    System.out.println("Tittel: " + film.getTittel());
-	    System.out.println("Regissør: " + film.getRegissor());
-	    System.out.println("År: " + film.getAar());
+	    System.out.println("Regissør: " + film.getFilmSkaper());
+	    System.out.println("År: " + film.getLansering());
 	    System.out.println("Sjanger: " + film.getSjanger().toString());
-	    System.out.println("Produsent: " + film.getProdusent());
+	    System.out.println("Produsent: " + film.getFilmSkaper());
 	    System.out.println("----------------------------------");
 	}
 		
