@@ -35,7 +35,7 @@ public class Tekstgrensesnitt {
 	    System.out.print("Skriv inn filmens produsent: ");
 	    String produsent = scanner.nextLine();
 	    
-	    return new Film(nr, regissor, tittel, ar, produsent, sjanger);
+	    return new Film(nr, regissor, tittel, ar, produsent);
 	}
 		
 	public void skrivUtFilm(Film film) {
