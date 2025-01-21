@@ -17,6 +17,7 @@ public class Film {
 		this.tittel = tittel;
 		this.lansering = lansering;
 		this.filmselskap = filmselskap;
+		this.sjanger = sjanger;
 	}
 
 	public int getFilmnr() {
