@@ -10,14 +10,13 @@ public class Film {
 	private int lansering;
 	private String filmselskap;
 	private Sjanger sjanger;
-	
-	public Film(int filmnr, String filmSkaper, String tittel, int lansering, String filmselskap, Sjanger sjanger) {
+
+	public Film(int filmnr, String filmSkaper, String tittel, int lansering, String filmselskap) {
 		this.filmnr = filmnr;
 		this.filmSkaper = filmSkaper;
 		this.tittel = tittel;
 		this.lansering = lansering;
 		this.filmselskap = filmselskap;
-		this.sjanger = sjanger;
 	}
 
 	public int getFilmnr() {
@@ -51,14 +50,26 @@ public class Film {
 	public void setLansering(int lansering) {
 		this.lansering = lansering;
 	}
-	
-    public Sjanger getSjanger() {
-        return sjanger;
-    }
 
-    public void setSjanger(Sjanger sjanger) {
-        this.sjanger = sjanger;
-    }
+	public String getRegissor() {
+		return null;
+	}
+
+	public String getAar() {
+		return null;
+	}
+
+	public String getProdusent() {
+		return null;
+	}
+
+	public Sjanger getSjanger() {
+		return sjanger;
+	}
+
+	public void setSjanger(Sjanger sjanger) {
+		this.sjanger = sjanger;
+	}
 
 	public String getFilmselvskap() {
 		return filmselskap;
@@ -67,7 +78,7 @@ public class Film {
 	public void setFilmselvskap(String filmselskap) {
 		this.filmselskap = filmselskap;
 	}
-	
+
 	@Override
 	public int hashCode() {
 		return Objects.hash(filmSkaper, filmnr, filmselskap, lansering, tittel);
@@ -87,5 +98,4 @@ public class Film {
 				&& Objects.equals(tittel, other.tittel);
 	}
 
-	
 }
