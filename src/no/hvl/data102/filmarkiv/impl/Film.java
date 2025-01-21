@@ -8,6 +8,7 @@ public class Film {
 	private String filmSkaper;
 	private String tittel;
 	private int lansering;
+	private Sjanger sjanger;
 	private String filmselvskap;
 	
 	public Film(int filmnr, String filmSkaper, String tittel, int lansering, String filmselvskap) {
@@ -49,6 +50,14 @@ public class Film {
 	public void setLansering(int lansering) {
 		this.lansering = lansering;
 	}
+	
+    public Sjanger getSjanger() {
+        return sjanger;
+    }
+
+    public void setSjanger(Sjanger sjanger) {
+        this.sjanger = sjanger;
+    }
 
 	public String getFilmselvskap() {
 		return filmselvskap;
