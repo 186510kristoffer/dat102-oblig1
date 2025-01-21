@@ -86,6 +86,5 @@ public class Film {
 				&& Objects.equals(tittel, other.tittel);
 	}
 
-
 	
 }
