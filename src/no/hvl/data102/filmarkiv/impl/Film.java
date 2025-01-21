@@ -8,14 +8,14 @@ public class Film {
 	private String filmSkaper;
 	private String tittel;
 	private int lansering;
-	private String filmselvskap;
+	private String filmselskap;
 	
-	public Film(int filmnr, String filmSkaper, String tittel, int lansering, String filmselvskap) {
+	public Film(int filmnr, String filmSkaper, String tittel, int lansering, String filmselskap) {
 		this.filmnr = filmnr;
 		this.filmSkaper = filmSkaper;
 		this.tittel = tittel;
 		this.lansering = lansering;
-		this.filmselvskap = filmselvskap;
+		this.filmselskap = filmselskap;
 	}
 
 	public int getFilmnr() {
@@ -51,16 +51,16 @@ public class Film {
 	}
 
 	public String getFilmselvskap() {
-		return filmselvskap;
+		return filmselskap;
 	}
 
-	public void setFilmselvskap(String filmselvskap) {
-		this.filmselvskap = filmselvskap;
+	public void setFilmselvskap(String filmselskap) {
+		this.filmselskap = filmselskap;
 	}
 	
 	@Override
 	public int hashCode() {
-		return Objects.hash(filmSkaper, filmnr, filmselvskap, lansering, tittel);
+		return Objects.hash(filmSkaper, filmnr, filmselskap, lansering, tittel);
 	}
 
 	@Override
@@ -73,7 +73,7 @@ public class Film {
 			return false;
 		Film other = (Film) obj;
 		return Objects.equals(filmSkaper, other.filmSkaper) && filmnr == other.filmnr
-				&& Objects.equals(filmselvskap, other.filmselvskap) && lansering == other.lansering
+				&& Objects.equals(filmselskap, other.filmselskap) && lansering == other.lansering
 				&& Objects.equals(tittel, other.tittel);
 	}
 
