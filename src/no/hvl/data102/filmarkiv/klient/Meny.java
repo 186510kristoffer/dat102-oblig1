@@ -1,7 +1,9 @@
 package no.hvl.data102.filmarkiv.klient;
 
-<<<<<<< Updated upstream
 import no.hvl.data102.filmarkiv.*;
+import no.hvl.data102.filmarkiv.adt.FilmarkivADT;
+import no.hvl.data102.filmarkiv.impl.Film;
+import no.hvl.data102.filmarkiv.impl.Sjanger;
 import no.hvl.data102.*;
 
 public class Meny {
@@ -30,32 +32,13 @@ public class Meny {
 	}
 
 	private void leggTilEksempeldata() {
-
 		filmarkiv.leggTilFilm(new Film(1, "Christopher Nolan", "Inception", 2010, Sjanger.ACTION, "Warner Bros"));
 		filmarkiv.leggTilFilm(new Film(2, "Quentin Tarantino", "Pulp Fiction", 1994, Sjanger.DRAMA, "Miramax"));
-		filmarkiv.leggTilFilm(
-				new Film(3, "Steven Spielberg", "Jurassic Park", 1993, Sjanger.ACTION, "Universal Pictures"));
+		filmarkiv
+				.leggTilFilm(new Film(3, "Steven Spielberg", "Jurassic Park", 1993, Sjanger.ACTION, "Universal Pictures"));
 		filmarkiv
 				.leggTilFilm(new Film(4, "James Cameron", "Avatar", 2009, Sjanger.SCIENCE_FICTION, "20th Century Fox"));
 		filmarkiv.leggTilFilm(
 				new Film(5, "Peter Jackson", "The Lord of the Rings", 2001, Sjanger.FANTASY, "New Line Cinema"));
 	}
-
-=======
-import no.hvl.data102.filmarkiv.adt.FilmarkivADT;
-
-public class Meny {
-	
-	private Tekstgrensesnitt tekstgr;
-	private FilmarkivADT filmarkiv;
-	public Meny(FilmarkivADT filmarkiv){
-		tekstgr = new Tekstgrensesnitt();
-		this.filmarkiv = filmarkiv;
-	}
-	public void start(){
-// legg inn en del forhåndsdefinerte filmer for å teste metodene
-// ..
-// TODO
-}
->>>>>>> Stashed changes
 }
