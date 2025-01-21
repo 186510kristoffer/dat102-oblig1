@@ -9,6 +9,7 @@ public class Film {
 	private String tittel;
 	private int lansering;
 	private String filmselskap;
+	private Sjanger sjanger;
 	
 	public Film(int filmnr, String filmSkaper, String tittel, int lansering, String filmselskap) {
 		this.filmnr = filmnr;
@@ -49,6 +50,14 @@ public class Film {
 	public void setLansering(int lansering) {
 		this.lansering = lansering;
 	}
+	
+    public Sjanger getSjanger() {
+        return sjanger;
+    }
+
+    public void setSjanger(Sjanger sjanger) {
+        this.sjanger = sjanger;
+    }
 
 	public String getFilmselvskap() {
 		return filmselskap;
