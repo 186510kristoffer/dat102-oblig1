@@ -51,27 +51,28 @@ public class Tekstgrensesnitt {
 
 	
 	public void skrivUtFilmDelstrengITittel(FilmarkivADT arkiv, String delstreng) {
-		  Film[] filmer = arkiv.soekTittel(delstreng);  
-		    if (filmer.length == 0) {
-		        System.out.println("Ingen filmer funnet med tittelen som inneholder: " + delstreng);
-		    } else {
-		        for (Film film : filmer) {
-		            skrivUtFilm(film); 
-		        }
-		    }
+	    Film[] filmer = arkiv.soekTittel(delstreng); 
+	    if (filmer == null || filmer.length == 0) {
+	        System.out.println("Ingen filmer funnet med tittelen som inneholder: " + delstreng);
+	    } else {
+	        for (Film film : filmer) {
+	            skrivUtFilm(film); 
+	        }
+	    }
+	}
 
-	}
-	
 	public void skrivUtFilmProdusent(FilmarkivADT arkiv, String delstreng) {
-		 Film[] filmer = arkiv.soekProdusent(delstreng); 
-		    if (filmer.length == 0) {
-		        System.out.println("Ingen filmer funnet med produsent som inneholder: " + delstreng);
-		    } else {
-		        for (Film film : filmer) {
-		            skrivUtFilm(film);  
-		        }
-		    }
+	    Film[] filmer = arkiv.soekProdusent(delstreng); 
+	    if (filmer == null || filmer.length == 0) {
+	        System.out.println("Ingen filmer funnet med produsent som inneholder: " + delstreng);
+	    } else {
+	        for (Film film : filmer) {
+	            skrivUtFilm(film); 
+	        }
+	    }
 	}
+		    
+	
 	
 	public void skrivUtStatistikk(FilmarkivADT arkiv) {
 		 System.out.println("Totalt antall filmer: " + arkiv.antall());  
@@ -80,6 +81,11 @@ public class Tekstgrensesnitt {
 		        System.out.println("Antall filmer i sjanger " + sjanger + ": " + antall);
 		    }
 		}
+
+	public void visFilmArkiv(FilmarkivADT filmarkiv) {
+		
+		
+	}
 	}
 	
 	
