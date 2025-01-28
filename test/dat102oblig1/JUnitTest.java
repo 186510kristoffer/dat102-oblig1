@@ -1,4 +1,4 @@
-package testpakke;
+package dat102oblig1;
 
 import static org.junit.jupiter.api.Assertions.*;
 
