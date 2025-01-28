@@ -7,20 +7,23 @@ public class Filmarkiv2 implements FilmarkivADT {
     private int antall;
     private LinearNode<Film> start;
 
-    public Filmarkiv2(int antall, LinearNode<Film> start) {
-        this.antall = antall;
-        this.start = start;
+    public Filmarkiv2() {
+        this.antall = 0;
+        this.start = null;
     }
 
+    @Override
     public Film finnFilm(int nr) {
         LinearNode<Film> aktuell = start;
-        while(aktuell != start) {
-        	if(aktuell.data.getFilmnr() == nr) {
-        		return aktuell.data;
-        	}
+        while (aktuell != null) {  
+            if (aktuell.data.getFilmnr() == nr) {
+                return aktuell.data;
+            }
+            aktuell = aktuell.neste;
         }
-        return null;
+        return null; 
     }
+
 
     @Override
     public void leggTilFilm(Film nyFilm) {
@@ -103,9 +106,9 @@ public class Filmarkiv2 implements FilmarkivADT {
 
     @Override
     public int antall() {
-        // TODO Auto-generated method stub
         return antall;
     }
+    
     private Film[] trimTabell(Film[] tabell, int lengde) {
         Film[] nyTabell = new Film[lengde];
         for (int i = 0; i < lengde; i++) {
