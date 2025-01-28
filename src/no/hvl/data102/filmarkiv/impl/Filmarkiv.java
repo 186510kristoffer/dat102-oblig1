@@ -28,9 +28,10 @@ public class Filmarkiv implements FilmarkivADT{
 	public void leggTilFilm(Film nyFilm) {
 
 		if (antall == filmer.length) {
-			filmer[antall] = nyFilm;
-			antall++;
+			utvidKapasitet();
 		}
+		filmer[antall] = nyFilm;
+		antall++;
 	}
 
 	@Override
