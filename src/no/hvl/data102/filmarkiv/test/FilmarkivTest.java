@@ -108,6 +108,19 @@ public class FilmarkivTest {
         }
         assertEquals(15, arkiv.antall(), "Forventet 15 filmer etter utvidelse av kapasitet.");
     }
+    
+    @Test
+    public void testAntallEtterLeggTil() {
+        arkiv.leggTilFilm(new Film(3, "Cameron", "Avatar", 2009, "Fox", Sjanger.SCIFI));
+        assertEquals(3, arkiv.antall(), "Forventet totalt 3 filmer i arkivet etter å legge til en ny film.");
+    }
+
+    @Test
+    public void testAntallEtterSletting() {
+        arkiv.slettFilm(1); // Sletter en film
+        assertEquals(1, arkiv.antall(), "Forventet totalt 1 film i arkivet etter sletting.");
+    }
+
 
 
 
