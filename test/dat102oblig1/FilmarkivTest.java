@@ -1,4 +1,8 @@
-package no.hvl.data102.filmarkiv.test;
+package dat102oblig1;
+
+import static org.junit.jupiter.api.Assertions.*;
+
+import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
 import org.junit.jupiter.api.BeforeEach;
@@ -129,5 +133,3 @@ public class FilmarkivTest {
 
 
 }
-
-
