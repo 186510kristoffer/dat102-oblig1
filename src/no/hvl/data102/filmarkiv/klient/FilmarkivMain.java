@@ -11,6 +11,11 @@ public class FilmarkivMain {
     	
     	Film[] filmer = new Film[4];
     	FilmarkivADT filmarkiv = new Filmarkiv(filmer, 0);
+    	Meny meny = new Meny(filmarkiv);
+    	Tekstgrensesnitt tg = new Tekstgrensesnitt();
+    	tg.lesFilm();
+    	
+    	
         
         Film film1 = new Film(1, "Christopher Nolan", "Inception", 2010,  "Warner Bros", Sjanger.ACTION);
         Film film2 = new Film(2, "Quentin Tarantino", "Pulp Fiction", 1994,  "Miramax", Sjanger.DRAMA);
@@ -22,6 +27,7 @@ public class FilmarkivMain {
         filmarkiv.leggTilFilm(film2);
         filmarkiv.leggTilFilm(film3);
         filmarkiv.leggTilFilm(film4);
+        
 
         
         System.out.println("Alle filmer i arkivet:");

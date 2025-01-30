@@ -7,6 +7,7 @@ import no.hvl.data102.filmarkiv.impl.Sjanger;
 import no.hvl.data102.*;
 
 public class Meny {
+	
 	private Tekstgrensesnitt tekstgr;
 	private FilmarkivADT filmarkiv;
 
