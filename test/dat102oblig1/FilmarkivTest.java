@@ -121,6 +121,9 @@ public class FilmarkivTest {
         arkiv.slettFilm(1); // Sletter en film
         assertEquals(1, arkiv.antall(), "Forventet totalt 1 film i arkivet etter sletting.");
     }
+    
+ 
+
 
 
 

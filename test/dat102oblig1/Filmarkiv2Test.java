@@ -34,6 +34,29 @@ public class Filmarkiv2Test {
         assertNotNull(funnetFilm, "Den nye filmen skal være lagt til i arkivet.");
         assertEquals("Star Wars", funnetFilm.getTittel(), "Den nye filmen skal ha tittelen 'Star Wars'.");
     }
+    
+    @Test
+    public void testFinnFilm() {
+        Film film = arkiv.finnFilm(1);
+        assertNotNull(film, "Film med nummer 1 skal finnes.");
+        assertEquals("Jaws", film.getTittel(), "Forventet tittel 'Jaws'.");
+    }
+    
+    @Test
+    public void testSokTittel() {
+        Film[] resultater = arkiv.soekTittel("Jaws");
+        assertEquals(1, resultater.length, "Forventet 1 treff.");
+        assertEquals("Jaws", resultater[0].getTittel(), "Forventet tittel 'Jaws'.");
+    }
+    
+    @Test
+    public void testSlettFilm() {
+        boolean slettet = arkiv.slettFilm(1);
+        assertTrue(slettet, "Forventet at film med nummer 1 ble slettet.");
+        assertEquals(1, arkiv.antall(), "Forventet totalt 1 film etter sletting.");
+    }
+
+
 
 }
 
