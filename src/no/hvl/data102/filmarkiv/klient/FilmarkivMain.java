@@ -10,7 +10,7 @@ public class FilmarkivMain {
     	 
     	
     	Film[] filmer = new Film[4];
-    	FilmarkivADT filmarkiv = new Filmarkiv(filmer, 4);
+    	FilmarkivADT filmarkiv = new Filmarkiv(filmer, 0);
         
         Film film1 = new Film(1, "Christopher Nolan", "Inception", 2010,  "Warner Bros", Sjanger.ACTION);
         Film film2 = new Film(2, "Quentin Tarantino", "Pulp Fiction", 1994,  "Miramax", Sjanger.DRAMA);

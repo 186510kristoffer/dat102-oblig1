@@ -56,7 +56,13 @@ public class Filmarkiv2Test {
         assertEquals(1, arkiv.antall(), "Forventet totalt 1 film etter sletting.");
     }
 
-
-
+    @Test
+    public void testAntallEtterSletting() {
+        arkiv.leggTilFilm(new Film(3, "Test Regissør", "Test Film", 2023, "TestSelskap", Sjanger.ACTION));
+        arkiv.slettFilm(3);
+        assertEquals(2, arkiv.antall(), "Antallet filmer skal være korrekt oppdatert etter sletting.");
+    }
 }
+
+
 
