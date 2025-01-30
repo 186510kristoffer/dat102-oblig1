@@ -7,7 +7,9 @@ import no.hvl.data102.filmarkiv.impl.Film;
 import no.hvl.data102.filmarkiv.impl.Sjanger;
 
 public class FilmarkivMain {
+	
     public static void main(String[] args) {
+    	
         Scanner scanner = new Scanner(System.in);
         FilmarkivADT filmarkiv = new Filmarkiv(10); 
         Tekstgrensesnitt tg = new Tekstgrensesnitt();
@@ -15,7 +17,7 @@ public class FilmarkivMain {
    
         boolean fortsett = true;
         while (fortsett) {
-            System.out.println("\n📽️ Filmarkiv - Velg en operasjon:");
+            System.out.println("\n Filmarkiv - Velg en operasjon:");
             System.out.println("1 - Legg til en ny film");
             System.out.println("2 - Finn en film etter nummer");
             System.out.println("3 - Slett en film");
@@ -31,7 +33,7 @@ public class FilmarkivMain {
             
            
             while (!scanner.hasNextInt()) {
-                System.out.println("⚠️  Feil: Du må skrive et gyldig tall! Prøv igjen...");
+                System.out.println("Feil: Du må skrive et gyldig tall! Prøv igjen...");
                 scanner.nextLine(); 
                 System.out.print("Velg et alternativ (1-8): ");
             }
