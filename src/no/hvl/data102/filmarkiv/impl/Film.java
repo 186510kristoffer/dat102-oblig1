@@ -76,8 +76,15 @@ public class Film {
 		return filmselskap;
 	}
 
+
 	public void setFilmselvskap(String filmselskap) {
 		this.filmselskap = filmselskap;
+	}
+	
+	@Override
+	public String toString() {
+		return "Film [filmnr=" + filmnr + ", filmSkaper=" + filmSkaper + ", tittel=" + tittel + ", lansering="
+				+ lansering + ", filmselskap=" + filmselskap + ", sjanger=" + sjanger + "]";
 	}
 
 	@Override

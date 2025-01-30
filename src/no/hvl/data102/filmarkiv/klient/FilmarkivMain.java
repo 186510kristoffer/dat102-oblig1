@@ -17,8 +17,7 @@ public class FilmarkivMain {
         Film film3 = new Film(3, "Steven Spielberg", "Jurassic Park", 1993,  "Universal Pictures", Sjanger.ACTION);
         Film film4 = new Film(4, "Joachim Rønning og Espen Sandberg", "Max Manus", 2008, "Nordisk Film", Sjanger.HISTORY);
 
-        
-        
+               
         filmarkiv.leggTilFilm(film1);
         filmarkiv.leggTilFilm(film2);
         filmarkiv.leggTilFilm(film3);
