@@ -51,12 +51,20 @@ public class Filmarkiv implements FilmarkivADT{
 	@Override
 	public Film[] soekTittel(String delstreng) {
 
-		Film[] res = new Film[antall];
+		
 		int antallFunnet = 0;
 		
 		for (int i = 0; i < antall; i++) {
-			if(filmer[i].getTittel().contains(delstreng)) {
-				res[antallFunnet++] = filmer[i];
+			if(filmer[i] != null && filmer[i].getTittel().contains(delstreng)) {
+				antallFunnet++;
+			}
+		}
+		Film[] res = new Film[antallFunnet];
+		int index = 0; 
+		
+		for(int i = 0; i < antall; i++) {
+			if(filmer[i] != null && filmer[i].getTittel().contains(delstreng)) {
+				res[index++] = filmer[i];
 			}
 		}
 		return res;
