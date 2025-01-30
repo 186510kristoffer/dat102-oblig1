@@ -1,92 +1,113 @@
 package no.hvl.data102.filmarkiv.klient;
 
+import java.util.Scanner;
 import no.hvl.data102.filmarkiv.adt.FilmarkivADT;
-import no.hvl.data102.filmarkiv.impl.Film;
 import no.hvl.data102.filmarkiv.impl.Filmarkiv;
+import no.hvl.data102.filmarkiv.impl.Film;
 import no.hvl.data102.filmarkiv.impl.Sjanger;
 
 public class FilmarkivMain {
     public static void main(String[] args) {
-    	 
-    	
-    	Film[] filmer = new Film[4];
-    	FilmarkivADT filmarkiv = new Filmarkiv(filmer, 0);
-    	Meny meny = new Meny(filmarkiv);
-    	Tekstgrensesnitt tg = new Tekstgrensesnitt();
-    	tg.lesFilm();
-    	
-    	
-        
-        Film film1 = new Film(1, "Christopher Nolan", "Inception", 2010,  "Warner Bros", Sjanger.ACTION);
-        Film film2 = new Film(2, "Quentin Tarantino", "Pulp Fiction", 1994,  "Miramax", Sjanger.DRAMA);
-        Film film3 = new Film(3, "Steven Spielberg", "Jurassic Park", 1993,  "Universal Pictures", Sjanger.ACTION);
-        Film film4 = new Film(4, "Joachim Rønning og Espen Sandberg", "Max Manus", 2008, "Nordisk Film", Sjanger.HISTORY);
+        Scanner scanner = new Scanner(System.in);
+        FilmarkivADT filmarkiv = new Filmarkiv(10); 
+        Tekstgrensesnitt tg = new Tekstgrensesnitt();
 
-               
-        filmarkiv.leggTilFilm(film1);
-        filmarkiv.leggTilFilm(film2);
-        filmarkiv.leggTilFilm(film3);
-        filmarkiv.leggTilFilm(film4);
-        
+   
+        boolean fortsett = true;
+        while (fortsett) {
+            System.out.println("\n📽️ Filmarkiv - Velg en operasjon:");
+            System.out.println("1 - Legg til en ny film");
+            System.out.println("2 - Finn en film etter nummer");
+            System.out.println("3 - Slett en film");
+            System.out.println("4 - Søk etter filmer etter tittel");
+            System.out.println("5 - Søk etter filmer etter produsent");
+            System.out.println("6 - Se antall filmer i en sjanger");
+            System.out.println("7 - Vis alle filmer");
+            System.out.println("8 - Avslutt programmet");
+            System.out.print("Velg et alternativ (1-8): ");
+            System.out.println();
 
-        
-        System.out.println("Alle filmer i arkivet:");
-        Film[] alleFilmer = filmarkiv.soekTittel("");
-        if (alleFilmer != null && alleFilmer.length > 0) {
-            for (Film film : alleFilmer) {
-                System.out.println(film);
+            int valg = scanner.nextInt();
+            scanner.nextLine(); 
+
+            switch (valg) {
+                case 1: 
+                    System.out.print("\nHvor mange filmer vil du legge til? ");
+                    int antallFilmer = scanner.nextInt();
+                    scanner.nextLine(); 
+                    for (int i = 0; i < antallFilmer; i++) {
+                        System.out.println("\nLegg til film nr. " + (i + 1));
+                        filmarkiv.leggTilFilm(tg.lesFilm());
+                    }
+                    break;
+
+                case 2: 
+                    System.out.print("\nSkriv inn filmnummeret du vil finne: ");
+                    int filmnr = scanner.nextInt();
+                    scanner.nextLine();
+                    Film film = filmarkiv.finnFilm(filmnr);
+                    if (film != null) {
+                        tg.skrivUtFilm(film);
+                    } else {
+                        System.out.println("Fant ingen film med nummer: " + filmnr);
+                    }
+                    break;
+
+                case 3: 
+                    System.out.print("\nSkriv inn filmnummeret du vil slette: ");
+                    int slettNr = scanner.nextInt();
+                    scanner.nextLine();
+                    boolean slettet = filmarkiv.slettFilm(slettNr);
+                    if (slettet) {
+                        System.out.println("Film med nummer " + slettNr + " ble slettet.");
+                    } else {
+                        System.out.println("Fant ikke film med nummer: " + slettNr);
+                    }
+                    break;
+
+                case 4: 
+                    System.out.print("\nSkriv inn tittel eller del av tittel du vil søke etter: ");
+                    String tittel = scanner.nextLine();
+                    tg.skrivUtFilmDelstrengITittel(filmarkiv, tittel);
+                    break;
+
+                case 5: 
+                    System.out.print("\nSkriv inn produsent eller del av produsent du vil søke etter: ");
+                    String produsent = scanner.nextLine();
+                    tg.skrivUtFilmProdusent(filmarkiv, produsent);
+                    break;
+
+                case 6: 
+                    System.out.println("\nVelg en sjanger:");
+                    for (Sjanger s : Sjanger.values()) {
+                        System.out.println((s.ordinal() + 1) + " - " + s);
+                    }
+                    System.out.print("Velg sjanger (1-" + Sjanger.values().length + "): ");
+                    int sjangerValg = scanner.nextInt();
+                    scanner.nextLine();
+                    if (sjangerValg >= 1 && sjangerValg <= Sjanger.values().length) {
+                        Sjanger valgtSjanger = Sjanger.values()[sjangerValg - 1];
+                        int antall = filmarkiv.antall(valgtSjanger);
+                        System.out.println("Antall filmer i sjangeren " + valgtSjanger + ": " + antall);
+                    } else {
+                        System.out.println("Ugyldig sjanger.");
+                    }
+                    break;
+
+                case 7: 
+                    tg.skrivUtFilmDelstrengITittel(filmarkiv, "");
+                    break;
+
+                case 8:
+                    System.out.println("Avslutter programmet...");
+                    fortsett = false;
+                    break;
+
+                default:
+                    System.out.println("Ugyldig valg, prøv igjen.");
             }
-        } else {
-            System.out.println("Ingen filmer funnet.");
         }
 
-       
-        System.out.println("\nFilmer med 'Inception' i tittelen:");
-        Film[] filmerMedTittel = filmarkiv.soekTittel("Inception");
-        if (filmerMedTittel != null && filmerMedTittel.length > 0) {
-            for (Film film : filmerMedTittel) {
-                System.out.println(film);
-            }
-        } else {
-            System.out.println("Ingen filmer funnet med denne tittelen.");
-        }
-
-       
-        System.out.println("\nFilmer av produsenten 'Quentin Tarantino':");
-        Film[] filmerMedProdusent = filmarkiv.soekProdusent("Quentin Tarantino");
-        if (filmerMedProdusent != null && filmerMedProdusent.length > 0) {
-            for (Film film : filmerMedProdusent) {
-                System.out.println(film);
-            }
-        } else {
-            System.out.println("Ingen filmer funnet av denne produsenten.");
-        }
-
-    
-        System.out.println("\nAntall filmer i ACTION-sjangeren: " + filmarkiv.antall(Sjanger.ACTION));
-
-        
-        System.out.println("\nSletter filmen med nummer 2...");
-        boolean slettet = filmarkiv.slettFilm(2);
-        if (slettet) {
-            System.out.println("Film med nummer 2 ble slettet.");
-        } else {
-            System.out.println("Fant ikke film med nummer 2, kunne ikke slette.");
-        }
-
-       
-        System.out.println("\nAlle filmer i arkivet etter sletting:");
-        alleFilmer = filmarkiv.soekTittel("");
-        if (alleFilmer != null && alleFilmer.length > 0) {
-            for (Film film : alleFilmer) {
-                System.out.println(film);
-            }
-        } else {
-            System.out.println("Ingen filmer igjen i arkivet.");
-        }
-
-        
-        System.out.println("\nTotalt antall filmer i arkivet: " + filmarkiv.antall());
+        scanner.close();
     }
 }
-

@@ -15,7 +15,7 @@ public class FilmarkivTest {
     public void setUp() {
         // Opprett et tomt filmarkiv
         Film[] filmer = new Film[10];
-        arkiv = new Filmarkiv(filmer, 0);
+        arkiv = new Filmarkiv(10);
 
         // Legg til noen filmer
         arkiv.leggTilFilm(new Film(1, "Spielberg", "Jaws", 1975, "Universal", Sjanger.ACTION));

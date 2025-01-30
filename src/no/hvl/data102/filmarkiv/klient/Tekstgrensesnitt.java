@@ -29,7 +29,6 @@ public class Tekstgrensesnitt {
 	    System.out.print("Skriv inn filmens sjanger (1 - ACTION, 2 - DRAMA, 3 - HISTORY, 4 - SCIFI, 5 - SCIENCE_FICTION, 6 - FANTASY): ");
 	    int sjangerInput = scanner.nextInt();
 	    Sjanger sjanger = Sjanger.values()[sjangerInput - 1]; 
-	    //HISTORY, SCIFI, SCIENCE_FICTION, FANTASY;
 	    
 	    scanner.nextLine(); 
 	    

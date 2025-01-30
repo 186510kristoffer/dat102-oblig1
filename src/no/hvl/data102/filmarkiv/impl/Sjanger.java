@@ -5,7 +5,7 @@ public enum Sjanger {
 
 	    public static Sjanger finnSjanger(String navn) {
 	        for (Sjanger s : Sjanger.values()) {
-	            if (s.toString().equalsIgnoreCase(navn)) {
+	            if (s.toString().toUpperCase().equalsIgnoreCase(navn)) {
 	                return s;
 	            }
 	        }

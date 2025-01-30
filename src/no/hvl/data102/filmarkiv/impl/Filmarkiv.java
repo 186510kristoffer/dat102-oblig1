@@ -8,10 +8,11 @@ public class Filmarkiv implements FilmarkivADT{
 	private int antall;
 	
 	
-	public Filmarkiv(Film[] filmer, int antall) {
-		this.filmer = filmer;
-		this.antall = antall;
+	public Filmarkiv(int kapasitet) { 
+	    this.filmer = new Film[kapasitet]; 
+	    this.antall = 0;  
 	}
+
 
 	@Override
 	public Film finnFilm(int nr) {
