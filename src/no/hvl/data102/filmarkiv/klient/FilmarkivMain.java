@@ -25,9 +25,18 @@ public class FilmarkivMain {
             System.out.println("7 - Vis alle filmer");
             System.out.println("8 - Avslutt programmet");
             System.out.print("Velg et alternativ (1-8): ");
-            System.out.println();
+            System.out.println(); 
+            
+            int valg = -1; 
+            
+           
+            while (!scanner.hasNextInt()) {
+                System.out.println("⚠️  Feil: Du må skrive et gyldig tall! Prøv igjen...");
+                scanner.nextLine(); 
+                System.out.print("Velg et alternativ (1-8): ");
+            }
 
-            int valg = scanner.nextInt();
+            valg = scanner.nextInt();
             scanner.nextLine(); 
 
             switch (valg) {
