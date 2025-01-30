@@ -73,15 +73,22 @@ public class Filmarkiv implements FilmarkivADT{
 	@Override
 	public Film[] soekProdusent(String delstreng) {
 
-		Film[] pro = new Film[antall];
+		
 		int antallFunnet = 0;
 		
 		for (int i = 0; i < antall; i++) {
-			if (filmer[i].getFilmSkaper().contains(delstreng)) {
-				pro[antallFunnet++] = filmer[i];
+			if (filmer[i] != null && filmer[i].getFilmSkaper().contains(delstreng)) {
+				antallFunnet++;
 			}
 		}
+		Film[] pro = new Film[antallFunnet];
+		int index = 0;
 		
+		for(int i = 0; i < antall; i++) {
+			if(filmer[i] != null && filmer[i].getFilmSkaper().contains(delstreng)) {
+				pro[index++] = filmer[i];
+			}
+		}
 		return pro;
 	}
 

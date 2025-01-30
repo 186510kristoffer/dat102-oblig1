@@ -9,6 +9,4 @@ public class LinearNode<T> {
 		this.data = data;
 		this.neste = null;
 	}
-
-    
 }
